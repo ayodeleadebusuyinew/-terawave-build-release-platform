@@ -1,0 +1,48 @@
+load(":cc_toolchain_config.bzl", "cc_toolchain_config")
+
+package(default_visibility = ["//visibility:public"])
+
+platform(
+    name = "riscv64_platform",
+    constraint_values = [
+        "@platforms//os:linux",
+        "@platforms//cpu:riscv64",
+    ],
+)
+
+cc_toolchain_config(
+    name = "riscv64_cc_toolchain_config",
+)
+
+filegroup(
+    name = "empty",
+    srcs = [],
+)
+
+cc_toolchain(
+    name = "riscv64_cc_toolchain",
+    all_files = ":empty",
+    ar_files = ":empty",
+    compiler_files = ":empty",
+    dwp_files = ":empty",
+    linker_files = ":empty",
+    objcopy_files = ":empty",
+    strip_files = ":empty",
+    supports_param_files = 0,
+    toolchain_config = ":riscv64_cc_toolchain_config",
+    toolchain_identifier = "terawave-riscv64-toolchain",
+)
+
+toolchain(
+    name = "riscv64_linux_toolchain",
+    exec_compatible_with = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+    ],
+    target_compatible_with = [
+        "@platforms//os:linux",
+        "@platforms//cpu:riscv64",
+    ],
+    toolchain = ":riscv64_cc_toolchain",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+)

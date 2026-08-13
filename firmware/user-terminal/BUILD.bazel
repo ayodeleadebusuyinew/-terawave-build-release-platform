@@ -1,0 +1,13 @@
+cc_library(
+    name = "terminal_lib",
+    srcs = ["src/terminal.cpp"],
+    hdrs = ["include/terminal.h"],
+    includes = ["include"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "user_terminal_firmware",
+    srcs = ["src/main.cpp"],
+    deps = [":terminal_lib"],
+)

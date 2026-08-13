@@ -1,0 +1,19 @@
+cc_library(
+    name = "satellite_lib",
+    srcs = ["src/satellite.cpp"],
+    hdrs = ["include/satellite.h"],
+    includes = ["include"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "satellite_firmware",
+    srcs = ["src/main.cpp"],
+    deps = [":satellite_lib"],
+)
+
+cc_test(
+    name = "satellite_test",
+    srcs = ["tests/satellite_test.cpp"],
+    deps = [":satellite_lib"],
+)

@@ -1,0 +1,14 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "telemetry",
+    srcs = ["telemetry.go"],
+    importpath = "github.com/terawave/terawave-build-release-platform/services/telemetry-ingestion/internal/telemetry",
+    visibility = ["//services/telemetry-ingestion:__subpackages__"],
+)
+
+go_test(
+    name = "telemetry_test",
+    srcs = ["telemetry_test.go"],
+    embed = [":telemetry"],
+)

@@ -1,0 +1,7 @@
+load("@gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/terawave/terawave-build-release-platform
+
+gazelle(
+    name = "gazelle",
+)
