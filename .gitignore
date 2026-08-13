@@ -1,0 +1,52 @@
+# Bazel
+bazel-*
+.bazel-cache/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Java
+target/
+*.class
+
+# Go
+bin/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# IDE
+.vscode/
+.idea/
+
+# Secrets
+*.pem
+*.key
+.env
+.env.*
+
+# Generated release artifacts
+ota/packages/*
+!ota/packages/.gitkeep
+
+# Temporary files
+*.tmp
+*.log
+
+# Bazel generated output
+bazel-bin
+bazel-out
+bazel-testlogs
+bazel-terawave-build-release-platform
+
+# Local build artifacts
+containers/telemetry/server
+
+# IDE / OS
+.vscode/
+.DS_Store
